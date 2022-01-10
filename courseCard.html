@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course cards</title>
+    <style>
+        #container {
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+            margin: auto;
+            justify-content: center;
+        }
+        input {
+            padding: 10px 30px;
+            margin: 10%;
+            font-size: 20px;
+        }
+        input[type = "submit"] {
+            width : 80%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form id="#form">
+            <div>
+            <input type="text" placeholder="Add Course">
+            </div>
+            <div>
+            <input type="text" placeholder="Add Course details">
+            </div>
+            <input id="add" type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit", addfunc)
+
+    function addfunc(event) {
+        event.preventDefault();
+    }
+</script>
