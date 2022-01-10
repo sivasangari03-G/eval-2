@@ -1,48 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course cards</title>
-    <style>
-        #container {
-            height: 500px;
-            width: 500px;
-            border: 1px solid black;
-            margin: auto;
-            justify-content: center;
-        }
-        input {
-            padding: 10px 30px;
-            margin: 10%;
-            font-size: 20px;
-        }
-        input[type = "submit"] {
-            width : 80%;
-            font-size: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <form id="#form">
-            <div>
-            <input type="text" placeholder="Add Course">
-            </div>
-            <div>
-            <input type="text" placeholder="Add Course details">
-            </div>
-            <input id="add" type="submit" value="Add">
-        </form>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Course cards</title>
+		<style>
+			#container {
+				height: fit-content;
+				width: 500px;
+				margin: auto;
+				text-align: center;
+				background-color: cadetblue;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+					rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+			}
+			input {
+				padding: 10px 30px;
+				margin: 5%;
+				font-size: 20px;
+				background-color: black;
+				color: white;
+				border: 0;
+				cursor: pointer;
+			}
+			input[type="submit"] {
+				width: 80%;
+				font-size: 20px;
+			}
+			#coursecard > div {
+				font-size: 30px;
+				font-weight: bold;
+				display: flex;
+				flex-direction: column;
+				margin: 5%;
+			}
+			button {
+				font-size: 25px;
+				padding: 10px 30px;
+				margin: 5%;
+				display: flex;
+				cursor: pointer;
+			}
+			#coursecardCointainer {
+				margin-top: 30px;
+				height: 1000px;
+				width: 100%;
+				/* border: 1px solid red; */
+				display: grid;
+				grid-gap: 16px;
+				justify-content: space-evenly;
+				grid-template-columns: repeat(3, 300px);
+			}
+			#coursecardCointainer > div {
+				border: 1px solid pink;
+				height: 300px;
+				width: 300px;
+				background-color: pink;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+					rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+				cursor: pointer;
+			}
+			@media only screen and (min-width: 0px) and (max-width: 800px) {
+				#coursecardCointainer {
+					grid-template-columns: repeat(1, 300px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<form>
+				<div>
+					<input id="input1" type="text" placeholder="Add Course" />
+				</div>
+				<div>
+					<input
+						id="input2"
+						type="text"
+						placeholder="Add Course details"
+					/>
+				</div>
+				<input id="add" type="submit" value="Add" />
+			</form>
+		</div>
+
+		<div id="coursecardCointainer">
+			<!-- <div id="coursecard"></div> -->
+			<!-- <div id="coursecard"></div> -->
+		</div>
+	</body>
 </html>
 
 <script>
-    document.querySelector("#form").addEventListener("submit", addfunc)
+	document.querySelector("form").addEventListener("submit", addfunc);
 
-    function addfunc(event) {
-        event.preventDefault();
-    }
+	function addfunc(event) {
+		event.preventDefault();
+		var card = document.createElement("div");
+		//console.log("1");
+		var cr = document.querySelector("#input1").value;
+		var course = document.createElement("div");
+		course.textContent = cr;
+
+		card.append(course);
+
+		var crDes = document.querySelector("#input2").value;
+		var description = document.createElement("div");
+		description.textContent = crDes;
+		card.append(description);
+
+		var detailButton = document.createElement("button");
+		detailButton.textContent = "DETAILS";
+		card.append(detailButton);
+		var applyButton = document.createElement("button");
+		applyButton.textContent = "APPLY";
+		card.append(applyButton);
+
+		var courseCard1 = document.querySelector("#coursecardCointainer");
+
+		courseCard1.append(card);
+	}
 </script>
