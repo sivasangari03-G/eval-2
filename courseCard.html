@@ -37,7 +37,6 @@
                 background-color: teal;
             } */
 			#coursecard > div {
-				font-size: 30px;
 				font-weight: bold;
 				display: flex;
 				flex-direction: column;
@@ -47,7 +46,7 @@
 				font-size: 25px;
 				padding: 10px 30px;
 				margin: 5%;
-				/* display: flex; */
+				margin-top: 120px;
 				cursor: pointer;
 			}
 			#coursecardCointainer {
@@ -108,13 +107,13 @@
 		var card = document.createElement("div");
 		//console.log("1");
 		var cr = document.querySelector("#input1").value;
-		var course = document.createElement("div");
+		var course = document.createElement("h1");
 		course.textContent = cr;
 
 		card.append(course);
 
 		var crDes = document.querySelector("#input2").value;
-		var description = document.createElement("div");
+		var description = document.createElement("h3");
 		description.textContent = crDes;
 		card.append(description);
 
